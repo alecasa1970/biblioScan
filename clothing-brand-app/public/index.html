@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identificador de Marca de Roupas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>🔎 Identificador de Marca de Roupas</h1>
+      <p class="subtitle">
+        Tire uma foto da etiqueta ou do logo da peça. O app tenta reconhecer a marca
+        (via Google Cloud Vision API), indica o país de origem, se é uma grife
+        sofisticada ou não, e estima um preço de venda.
+      </p>
+      <p id="modeBadge" class="badge">Verificando configuração...</p>
+    </header>
+
+    <section class="card">
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*" capture="environment" hidden />
+        <img id="preview" alt="Pré-visualização" hidden />
+        <div id="uploadPlaceholder">
+          <p>📷 Toque para tirar uma foto ou escolher da galeria</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="manualBrand">Nome da marca (opcional, use se o reconhecimento falhar)</label>
+        <input type="text" id="manualBrand" placeholder="Ex: Zara, Nike, Gucci..." />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="categorySelect">Tipo de peça</label>
+          <select id="categorySelect"></select>
+        </div>
+        <div class="field">
+          <label for="conditionSelect">Estado de conservação</label>
+          <select id="conditionSelect"></select>
+        </div>
+      </div>
+
+      <button id="analyzeBtn" disabled>Analisar</button>
+    </section>
+
+    <section id="result" class="card" hidden></section>
+
+    <footer>
+      <p>
+        As estimativas de preço são heurísticas (baseadas em faixas típicas por marca,
+        categoria e estado de conservação) — não consultam marketplaces em tempo real.
+      </p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
