@@ -1,0 +1,16 @@
+{
+  "name": "clothing-brand-app",
+  "version": "1.0.0",
+  "description": "Identifica a marca de uma peça de roupa por foto, indica o país de origem, o posicionamento (luxo/premium/mainstream/popular) e estima o preço de venda.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
